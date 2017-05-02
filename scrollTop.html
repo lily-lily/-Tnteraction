@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{overflow-x: hidden;padding-top: 42px;line-height: 1.75; overflow-y: scroll;  padding-top: 100px;}
+        .modal-open{ position: fixed; width: 100%}
+        .modal{ position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0,0,0,0.6); display: none}
+    </style>
+</head>
+<script src="js/lib/jquery.js"></script>
+<script>
+    $(function () {
+
+        var bodyScroll = (function(bodyCls) {
+            var ScrollTop;
+            return {
+                afterOpen: function() {
+                    //ScrollTop = document.scrollingElement.scrollTop;
+                    ScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    $(document.body).addClass(bodyCls);
+                    //document.body.classList.add(bodyCls);
+                    //document.body.style.top = -ScrollTop + 'px';
+                    $(document.body).scrollTop(-ScrollTop);
+                    console.log(ScrollTop)
+
+                },
+                beforeClose: function() {
+                    $(document.body).removeClass(bodyCls);
+                    //document.body.classList.remove(bodyCls);
+                    //document.scrollingElement.scrollTop = ScrollTop;
+                    $(document.body).scrollTop(ScrollTop)
+                }
+            };
+
+        })('modal-open');
+        $(".btn").on("click", function () {
+            var aa = 0;
+            aa = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log("aa:"+aa)
+            $(".modal").show();
+            bodyScroll.afterOpen();
+        });
+        $(".modal").on("click", function () {
+            var bb = 0;
+            bb = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log("bb:"+bb)
+            bodyScroll.beforeClose();
+            $(".modal").hide();
+        })
+    })
+</script>
+<body style="height: 2000px;">
+    <button type="button" class="btn1 btn">点击1</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button type="button" class="btn2 btn">点击2</button>
+    <div class="modal"></div>
+</body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- IE 兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Title-2</title>
+    <link href="css/cssresetbefore.css" rel="stylesheet">
+    <link href="css/iconfont.css" rel="stylesheet">
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="css/bootstrap-treeview.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-separation-16.css" rel="stylesheet">
+    <link href="css/bootstrap-separation-fixed.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/fastclick.js"></script>
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+</head>
+<body class="base">
+    <div class="modal modal-screen"></div>
+    <div class="edit-no"></div>
+    <header class="navbar-fixed-top header-bg">
+        <div class="container-fluid">
+            <nav>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#example-navbar-collapse" aria-controls="bs-navbar" aria-expanded="true">
+                        <span class="sr-only">切换导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                    <ul class="pull-right nav nav-pills header-nav clear">
+                        <li><a href="javascript:;"><i class="iconfont icon-liucheng1 span-m"></i>流程预演</a></li>
+                        <li><a href="javascript:;"><i class="iconfont icon-baocun1 span-m"></i>保存草稿</a></li>
+                        <li><a href="javascript:;" class="submitPage"><i class="iconfont icon-tijiao span-m"></i>提交</a></li>
+                        <li><a href="javascript:;"><i class="iconfont icon-chaxun span-m"></i>预算查询</a></li>
+                        <li><a href="javascript:;"><i class="iconfont icon-guanbi span-m"></i>关闭</a></li>
+                        <li><a href="javascript:;"><i class="iconfont icon-fujian span-m"></i>附件</a></li>
+                        <li><a href="javascript:;"><i class="iconfont icon-zuofei span-m"></i>作废</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- one -->
+    <section id="one" class="bs-docs-section">
+        <div class="container-fluid">
+            <div class="row w100">
+                <div class="colc-md-4 colc-xs-12 header_title bg-info test">
+                    <span class="text-center">提单人公司名称</span>
+                </div>
+                <div class="colc-md-4 colc-xs-12 header_title border-r bg-info">
+                    <span class="text-center">还款单</span>
+                </div>
+                <div class="colc-md-4 hidden-xs header_title bg-info text-center">
+                    <img src="" alt="条形码"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-16">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-3">
+                            <span>经办人：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-8">
+                            <div class="form-group">
+                                <input class="form-control noBorder" readonly type="text" value="张三"/>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-xs-16">
+                    <div class="row test"  data-col="2">
+                        <div class="colc-md-4 colc-xs-3">
+                            <span>单据日期：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-8">
+                            <div class="input-group date form_date1" data-date data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                <input type="text" value="" class="form-control needsclick" readonly>
+                                <span class="input-group-addon needsclick"><span class="glyphicon glyphicon-remove  needsclick"></span></span>
+                                <span class="input-group-addon needsclick"><span class="glyphicon glyphicon-calendar  needsclick"></span></span>
+                            </div>
+                            <input type="hidden" id="dtp_input2" value="">
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-16">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-3">
+                            <span>单据号：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-8">
+                            <div class="form-group">
+                                <input class="form-control noBorder" type="number" value="1234567890" readonly/>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-12">
+                            <span>经办人部门：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-11">
+                            <div class="form-group">
+                                <label class="sr-only">经办人部门</label>
+                                <select class="form-control select-menu">
+                                    <option>sh总经办</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12">
+                    <div class="row test" data-col="3">
+                        <div class="colc-md-4 colc-xs-12">
+                            <span>还款金额：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-11 ">
+                            <div class="form-group">
+                                <input type="number" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-12">
+                            <span>借款人：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-11">
+                            <div class="input-group">
+                                <input class="form-control openModal needsclick" type="text" value="" readonly />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-borrower" type="button">选择</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-12">
+                            <span>归属部门：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-11">
+                            <div class="input-group">
+                                <input class="form-control openModal needsclick" type="text" value="" readonly />
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default apartment" type="button">选择</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-xs-12">
+                    <div class="row test" data-col="2">
+                        <div class="colc-md-4 colc-xs-3">
+                            <span>归属部门负责人：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control noBorder" readonly value="曾山"/>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-16 col-xs-16">
+                    <div class="row test">
+                        <div class="colc-md-1 colc-xs-12">
+                            <span>摘要：</span>
+                        </div>
+                        <div class="colc-md-11 colc-xs-12">
+                            <textarea class="form-control"></textarea>
+                        </div>
+                        <!--<div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 暂支冲销 -->
+    <section id="two" class="bs-docs-section">
+        <div class="container-fluid widgetParent clearfix">
+            <span class="bg-info text-center sma-title w100">暂支冲销</span>
+            <div class="widget">
+                <div class="row">
+                    <div class="colc-md-6 colc-xs-6">1</div>
+                    <div class="colc-md-6 colc-xs-6 del">×</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <div class="row test">
+                            <div class="colc-md-4 colc-xs-12">
+                                <span>暂支单：</span>
+                            </div>
+                            <div class="colc-md-7 colc-xs-11">
+                                <div class="input-group">
+                                    <input class="form-control openModal2 needsclick" type="text" readonly />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default btn-temp-payment" type="button">选择</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="colc-md-1 colc-xs-1">
+                                <span class="tips">*</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="row test">
+                            <div class="colc-md-4 colc-xs-12">
+                                <span>借款单日期:</span>
+                            </div>
+                            <div class="colc-md-7 colc-xs-8">
+	                            <div class="input-group date form_date1" data-date data-date-format="yyyy-mm-dd" data-link-field="dtp_input3" data-link-format="yyyy-mm-dd">
+	                                <input type="text" value="" class="form-control needsclick" readonly>
+	                                <span class="input-group-addon needsclick"><span class="glyphicon glyphicon-remove  needsclick"></span></span>
+	                                <span class="input-group-addon needsclick"><span class="glyphicon glyphicon-calendar  needsclick"></span></span>
+	                            </div>
+	                            <input type="hidden" id="dtp_input3" value="">
+	                        </div>
+                            <!--<div class="colc-md-7 colc-xs-11">
+                                <div class="form-group">
+                                    <input class="form-control" readonly />
+                                </div>
+                            </div>-->
+                            <div class="colc-md-1 colc-xs-1">
+                                <span class="tips">*</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="row test">
+                            <div class="colc-md-4 colc-xs-4">
+                                <span>暂支金额：</span>
+                            </div>
+                            <div class="colc-md-7 colc-xs-7">
+                                <div class="form-group">
+                                    <input type="number" class="form-control noBorder" value="0" readonly/>
+                                </div>
+                            </div>
+                            <div class="colc-md-1 colc-xs-1">
+                                <span class="tips">*</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <div class="row test">
+                            <div class="colc-md-4 colc-xs-5">
+                                <span>已还暂支金额：</span>
+                            </div>
+                            <div class="colc-md-7 colc-xs-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control noBorder" value="0" readonly/>
+                                </div>
+                            </div>
+                            <div class="colc-md-1 colc-xs-1">
+                                <span class="tips">*</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="row test">
+                            <div class="colc-md-4 colc-xs-5">
+                                <span>未还暂支金额：</span>
+                            </div>
+                            <div class="colc-md-7 colc-xs-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control noBorder" readonly value="0"/>
+                                </div>
+                            </div>
+                            <div class="colc-md-1 colc-xs-1">
+                                <span class="tips">*</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="row test">
+                            <div class="colc-md-4 colc-xs-12">
+                                <span>冲暂支金额：</span>
+                            </div>
+                            <div class="colc-md-7 colc-xs-11">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" value="0"/>
+                                </div>
+                            </div>
+                            <div class="colc-md-1 colc-xs-1">
+                                <span class="tips">*</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <button class="btn btn-primary pull-right w100 clearfix btn-bg" type="button" id="addWidget">添加</button>
+        </div>
+    </section>
+    <!-- 付款信息 -->
+    <section id="three" class="bs-docs-section">
+        <div class="container-fluid">
+            <span class="bg-info text-center sma-title w100">付款信息</span>
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-12">
+                            <span>收款方：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-11">
+                            <div class="input-group">
+                                <input class="form-control openModal3 needsclick" readonly/>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-benefit" type="button">选择</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-12">
+                            <span>银行：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-11">
+                            <div class="form-group">
+                                <input type="text" class="form-control bank" value="农行"/>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-12">
+                            <span>银行帐号：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-11">
+                            <div class="form-group">
+                                <input type="text" class="form-control bank-account" value="00000000000000"/>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-12">
+                            <span>付款方式：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-11">
+                            <div class="input-group">
+                                <input type="text" class="form-control openModal4" value="用户1" readonly/>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-way" type="button">选择</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12 col-md-offset-4">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-12">
+                            <span>付款金额：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-11">
+                            <div class="form-group">
+                                <input type="number" class="form-control" value="0"/>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 合计金额 -->
+    <section id="four" class="bs-docs-section">
+        <div class="container-fluid bg-info w100">
+            <div class="row">
+                <div class="col-md-4 col-xs-16">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-3 bg-info">
+                            <span>还款金额：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-8">
+                            <div class="form-group">
+                                <input type="number" class="form-control noBorder" value="0" readonly/>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-16">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-3">
+                            <span>冲销总金额：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-8">
+                            <div class="form-group">
+                                <input type="number" class="form-control noBorder" value="0" readonly/>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-16">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-3">
+                            <span>实际支付金额：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-8">
+                            <div class="form-group">
+                                <input type="number" class="form-control noBorder" value="0" readonly/>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-16">
+                    <div class="row test">
+                        <div class="colc-md-4 colc-xs-3">
+                            <span>大写金额合计：</span>
+                        </div>
+                        <div class="colc-md-7 colc-xs-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control noBorder" value="0" readonly/>
+                            </div>
+                        </div>
+                        <div class="colc-md-1 colc-xs-1">
+                            <span class="tips">*</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  模态框1 -->
+    <div class="modal fade bs-example-modal-lg" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <!-- 模态框 header -->
+                <div class="modal-header">
+                    <button type="button" class="close" id="btn-clear-search" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModal">提单人</h4>
+                </div>
+                <!-- 模态框 body -->
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="colc-md-12 colc-xs-12">
+                                <!--<label for="input-search" class="sr-only">查找</label>-->
+                                <div class="form-group">
+                                    <input type="text" id="input-search" class="form-control" placeholder="输入搜索..." aria-describedby="btn-search">
+                                </div>
+                                <a href="javascript:;" id="btn-search" class="btn-search"></a>
+                            </div>
+                            <div class="checkbox hide">
+                                <label><input type="checkbox" class="checkbox" id="chk-ignore-case" value="true"/>不区分大小写</label>
+                            </div>
+                            <div class="checkbox hide">
+                                <label><input type="checkbox" class="checkbox" id="chk-exact-match" value="true"/>精准查找</label>
+                            </div>
+                            <div class="checkbox hide">
+                                <label><input type="checkbox" class="checkbox" id="chk-reveal-results" value="true"/>模糊查找</label>
+                            </div>
+                        </div>
+                        <div class="row hidden-xs" style="margin-bottom: 5px;">
+                            <button type="button" class="btn btn-primary expand-tree">展开</button>
+                            <button type="button" class="btn btn-default enable-tree">折叠</button>
+                        </div>
+                        <div class="treeview-searchable treeview row" style="overflow-y:scroll">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- 模态框 footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default close-modal" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary confirm-choose-result">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框2（ 单据） -->
+    <div class="modal fade bs-example-modal-lg" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModal2">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModal2">借款单-按申请人</h4>
+                </div>
+                <!-- 模态框 body -->
+                <div class="modal-body clearfix">
+                    <ul class="pull-right nav nav-pills">
+                        <li class="hidden-xs"><a href="javascript:;">高级搜索</a></li>
+                        <li><a href="javascript:;"><i class="iconfont icon-baocun1 span-m"></i>打开</a></li>
+                        <li><a href="javascript:;"><i class="iconfont icon-tijiao span-m"></i>确定</a></li>
+                        <li><a href="javascript:;"><i class="iconfont icon-guanbi span-m"></i>关闭</a></li>
+                        <li><a href="javascript:;"><i class="iconfont icon-fujian span-m"></i>刷新</a></li>
+                    </ul>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover temporarySupport">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>借款编号</th>
+                                    <th>单据类型</th>
+                                    <th>费用科目</th>
+                                    <th>部门</th>
+                                    <th>申请人</th>
+                                    <th>提单日期</th>
+                                    <th>借款金额</th>
+                                    <th>已还金额</th>
+                                    <th>未还金额</th>
+                                    <th>摘要</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- 模态框footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default close-modal">关闭</button>
+                    <button type="button" class="btn btn-primary confirm-choose-result1">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框3（ 收款方） -->
+    <div class="modal fade bs-example-modal-lg" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModal3">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModal3">借款单-按申请人</h4>
+                </div>
+                <!-- 模态框 body -->
+                <div class="modal-body clearfix">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#personal" aria-controls="home" role="tab" data-toggle="tab">个人银行</a></li>
+                        <li role="presentation"><a href="#supplier" aria-controls="profile" role="tab" data-toggle="tab">供应商银行</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="personal">
+                            <ul class="pull-right nav nav-pills sub-nav clear">
+                                <li><a href="javascript:;"><i class="iconfont icon-tijiao span-m"></i>提交</a></li>
+                                <li><a href="javascript:;"><i class="iconfont icon-guanbi span-m"></i>关闭</a></li>
+                                <li><a href="javascript:;"><i class="iconfont icon-fujian span-m"></i>刷新</a></li>
+                            </ul>
+                            <div class="table-container table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>名称</th>
+                                        <th>账号</th>
+                                        <th>银行</th>
+                                        <th>收款方</th>
+                                        <th>开户银行</th>
+                                        <th>省份</th>
+                                        <th>地市县</th>
+                                        <th>证件号</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="supplier">
+                            <div class="row" style="padding-top: 15px;">
+                                <div class="colc-md-6 colc-xs-12">
+                                    <div class="form-group">
+                                        <!--<label for="supplierInput" class="col-md-2 control-label sr-only">查找</label>-->
+                                        <input type="text" id="supplierInput" class="form-control" placeholder="输入查询...">
+                                    </div>
+                                    <a href="javascript:;" class="supplierInputBtn"></a>
+                                </div>
+                                <div class="colc-md-6 colc-xs-12">
+                                    <ul class="pull-right nav nav-pills sub-nav clear">
+                                        <li><a href="javascript:;"><i class="iconfont icon-tijiao span-m"></i>提交</a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-guanbi span-m"></i>关闭</a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-fujian span-m"></i>刷新</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="table-container table-responsive">
+                                <table class="table table-responsive table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>名称</th>
+                                        <th>账号</th>
+                                        <th>银行</th>
+                                        <th>收款方</th>
+                                        <th>开户银行</th>
+                                        <th>省份</th>
+                                        <th>地市县</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 模态框footer -->
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="colc-md-9 colc-xs-12">
+                            <div class="row paging">
+                                <div class="form-group colc-md-2 colc-xs-4">
+                                    <select class="form-control">
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                    </select>
+                                </div>
+                                <div class="colc-md-10 pages colc-xs-8">
+                                    <div class="row">
+                                        <span href="javascript:;" class="page-btn text-center"> << </span>
+                                        <span href="javascript:;" class="page-btn text-center"> < </span>
+                                        <div class="form-group page-btn-choose text-center"><input type="text" class="form-control"></div>
+                                        <span class="page-btn page-btn-count text-center">共10页</span>
+                                        <span href="javascript:;" class="page-btn text-center"> > </span>
+                                        <span href="javascript:;" class="page-btn text-center"> >> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colc-md-3 colc-xs-12">
+                            <button type="button" class="btn btn-default close-modal" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary confirm-choose-result2">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="js/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+<script src="js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="js/add.js"></script>
+

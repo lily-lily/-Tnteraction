@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	    <!-- IE 兼容模式 -->
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <!-- 国产浏览器高速模式 -->
+	    <meta name="renderer" content="webkit">
+	    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <title>Title-3</title>
+	    <link href="css/cssresetbefore.css" rel="stylesheet">
+	    <link href="css/iconfont.css" rel="stylesheet">
+	    <link href="css/bootstrap.css" rel="stylesheet">
+	    <link href="css/bootstrap-separation-12.css" rel="stylesheet">
+	    <link href="css/bootstrap-separation-fixed.css" rel="stylesheet">
+	    <link href="css/style.css" rel="stylesheet">
+	    <script src="js/lib/jquery.js"></script>
+	    <script src="js/lib/fastclick.js"></script>
+	    <script>
+	        $(function () {
+	            FastClick.attach(document.body);
+	        });
+	    </script>
+	</head>
+	<body class="base">
+		<header class="navbar-fixed-top header-bg">
+	        <div class="container-fluid">
+	            <nav>
+	                <div class="navbar-header">
+	                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+	                            data-target="#example-navbar-collapse" aria-controls="bs-navbar" aria-expanded="true">
+	                        <span class="sr-only">切换导航</span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                    </button>
+	                </div>
+	                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+	                    <ul class="pull-right nav nav-pills header-nav clear">
+	                        <li><a href="javascript:;" class="exit_out"><i class="iconfont icon-liucheng1 span-m"></i>退出</a></li>
+	                        <li><a href="javascript:;" class="login_out"><i class="iconfont icon-baocun1 span-m"></i>注销</a></li>
+	                        <li><a class="change_password" data-toggle="modal" data-target="#passwordModal"><i class="iconfont icon-chaxun span-m"></i>修改密码</a></li>
+	                    </ul>
+	                </div>
+	            </nav>
+	        </div>
+	    </header>
+	    <section class="bs-docs-section">
+	        <div class="container-fluid">
+	        	<!--<div style="height: 200px;"><b class="content_img"></b></div>-->
+	            <img src="images/nav-bar.jpg" alt="" width="100%" height="200px"/>
+	            <div>
+	            	工商银行：<a href="tel:95588">95588</a>
+	            </div>
+	            <div>
+	            	<input type="image" placeholder="上传图片" />
+	            </div>
+	        </div>
+	    </section>
+	    <!--弹出框1-->
+	    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel" style="text-align: center;">修改登录密码</h4>
+		      </div>
+		      <div class="modal-body clearfix">
+		        <div class="col-md-12 col-xs-12 form-group">
+		        	<div class="colc-md-3 colc-xs-4 text-right">
+		        		<label>原密码：</label>
+		        	</div>
+		        	<div class="colc-md-8 colc-xs-7">
+		        		<input type="password" id="password" placeholder="请输入密码" class="form-control"/>
+		        	</div>
+		        	<div class="colc-md-1 colc-xs-1">
+                        <span class="tips">*</span>
+                    </div>
+		        </div>
+		        <div class="col-md-12 col-xs-12 form-group">
+		        	<div class="colc-md-3 colc-xs-4 text-right">
+		        		<label>新密码：</label>
+		        	</div>
+		        	<div class="colc-md-8 colc-xs-7">
+		        		<input type="password" id="newPassword" placeholder="请输入新密码" class="form-control"/>
+		        	</div>
+		        	<div class="colc-md-1 colc-xs-1">
+                        <span class="tips">*</span>
+                    </div>
+		        </div>
+		        <div class="col-md-12 col-xs-12 form-group">
+		        	<div class="colc-md-3 colc-xs-4 text-right">
+		        		<label>确认密码：</label>
+		        	</div>
+		        	<div class="colc-md-8 colc-xs-7">
+		        		<input type="password" id="confirmPassword" placeholder="请输入确认密码" class="form-control"/>
+		        	</div>
+		        	<div class="colc-md-1 colc-xs-1">
+                        <span class="tips">*</span>
+                    </div>
+		        </div>     
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary" id="btn-save">保存</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!--提示框-->
+		<div class="alert alert-warning alert-tips">
+			<a href="#" class="close" data-dismiss="alert">
+				&times;
+			</a>
+			<span>密码不一致，请重新输入!</span>
+		</div>
+	</body>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/main.js"></script>
+</html>

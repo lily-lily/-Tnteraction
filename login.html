@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- IE 兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Title-2</title>
+    <link href="css/cssresetbefore.css" rel="stylesheet">
+    <link href="css/iconfont.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-separation-fixed.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/fastclick.js"></script>
+    <script src="js/qrcode.js"  type="text/javascript"></script>
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+</head>
+<body class="login-pt">
+    <div class="container-fluid">
+        <div class="row login-logo text-center">EP</div>
+        <div class="row">
+            <div class="colc-xs-12">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="登录名" value="" name="username">
+                </div>
+            </div>
+            <div class="colc-xs-12">
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="密码" value="" name="keyword">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="colc-xs-12">
+                <button type="button" class="login-btn btn btn-primary w100 btn-bg">登录</button>
+            </div>
+        </div>
+        <div class="row code-link">
+            <div class="colc-xs-12">
+                <ul class="clearfix pull-right">
+                	<li class="clearfix">
+                		<a href="javascript:;" class="link-icon pull-right btn-lg">
+		                	<!--<i class="glyphicon glyphicon-qrcode"></i>-->
+		                	<img src="./images/services.png" alt=""/>
+		                </a>
+		                <div class="show_img" id="qrcode">
+		                	<!--<img src="./images/MbCode.jpg" alt="" />-->
+		                </div>	
+                	</li>
+                	<li class="clearfix pull-left">
+                		<a href="javascript:;" class="link-icon pull-right btn-lg">
+		                	<!--<i class="glyphicon glyphicon-qrcode"></i>-->
+		                	<img src="./images/Android.png" alt=""/>
+		                </a>
+		                <div class="show_img" id="andriod">
+		                	<!--<img src="./images/andriodCode.jpg" alt=""/>-->
+		                </div>
+                	</li>
+                </ul>
+                
+            </div>
+            
+        </div>
+        <div class="alert alert-warning alert-tips">
+			<a href="#" class="close" data-dismiss="alert">
+				&times;
+			</a>
+			<span>登录名或者密码错误！</span>
+		</div>
+    </div>
+</body>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/login.js"></script>
+<script  type="text/javascript">
+$(function(){
+	var qrcode = new QRCode(document.getElementById("qrcode"), "http://192.168.1.4:112/login.html@http://192.168.1.4:112/OpenMessage.html");
+	var andriod = new QRCode(document.getElementById("andriod"), "http://192.168.1.4:112/login.html@http://192.168.1.4:112/OpenMessage.html");
+})
+/*--浏览器二维码只在pc上显示--*/
+function browserRedirect() { 
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){
+       $('.code-link').show();
+    }else{
+    	$('.code-link').hide();
+    	/*$('.form-control').bind('focus',function(){  
+            $('.code-link').css('position','static');   
+        }).bind('blur',function(){  
+            $('.code-link').css({'position':'fixed','bottom':'0'});  
+        });*/
+    }
+}
+browserRedirect();
+
+
+</script>
+</html>

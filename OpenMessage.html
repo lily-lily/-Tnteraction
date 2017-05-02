@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	    <!-- IE 兼容模式 -->
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <!-- 国产浏览器高速模式 -->
+	    <meta name="renderer" content="webkit">
+	    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <title>Message 消息</title>
+	    <link href="css/cssresetbefore.css" rel="stylesheet">
+	    <link href="css/iconfont.css" rel="stylesheet">
+	    <link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+	    <script src="js/lib/jquery.js"></script>
+	    <script src="js/lib/fastclick.js"></script>
+	    <script>
+	        $(function () {
+	            FastClick.attach(document.body);
+	        });
+	    </script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div style="width: 90%;margin: auto;">
+				<h3>推送成功： <span class="label label-message">success</span></h3>
+				<h3>姓名： <span class="label label-message">success</span></h3>
+			</div>
+		</div>
+	</body>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/common.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			alert('111')
+			time();
+		})
+		
+		function time(){
+			var aa ={"content":"{\\\"activename\\\":\\\"成本中心负责人\\\",\\\"activityaudittype\\\":\\\"1\\\",\\\"billurl\\\":\\\"e51dcff4-381a-45c7-b5cc-6699be2a22e6\\\",\\\"content\\\":\\\"请审核 苗亚博 的 《对公付款单》 ，金额：1000.00 \\\",\\\"emergencylevel\\\":0,\\\"formid\\\":\\\"f3749aae-0042-42c9-b30c-c40c18fa9e68\\\",\\\"formstate\\\":\\\"审批中\\\",\\\"formtypeid\\\":\\\"2f2d5169-9238-4ef2-b727-80cd89623299\\\",\\\"fromtypename\\\":\\\"对公付款单\\\",\\\"messageid\\\":\\\"dbb7c545-e4e7-455d-82c2-a762015f8fe4\\\",\\\"messagetype\\\":0,\\\"recevieid\\\":\\\"8393f207-2ac0-43fd-85e3-c29ca2a68d08\\\",\\\"sender\\\":\\\"00000000-0000-0000-0000-000000000001\\\",\\\"sendername\\\":\\\"Expense\\\",\\\"taskid\\\":\\\"6e414f5e-643e-47a2-83e9-a762015f8fd6\\\",\\\"taskstate\\\":\\\"0\\\",\\\"title\\\":\\\"消息\\\"}"}
+			console.log(aa)
+			/*aa = JSON.stringify(aa);*/
+			var s_Data = aa.content;
+		  	var ss = s_Data.replace(/\\(.)/g, "$1");
+		  	//ss = JSON.parse(ss); //字符串转为json对象取值
+		  	$('.label-message').text(ss);
+		}
+		
+	</script>
+</html>
